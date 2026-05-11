@@ -1,0 +1,17 @@
+﻿  Determining projects to restore...
+  All projects are up-to-date for restore.
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\ContractController.cs(128,34): error CS1061: 'ClaimsPrincipal' does not contain a definition for 'FindFirstValue' and no accessible extension method 'FindFirstValue' accepting a first argument of type 'ClaimsPrincipal' could be found (are you missing a using directive or an assembly reference?) [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(71,31): warning CS8602: Dereference of a possibly null reference. [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(148,32): warning CS8602: Dereference of a possibly null reference. [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(158,34): error CS1061: 'ClaimsPrincipal' does not contain a definition for 'FindFirstValue' and no accessible extension method 'FindFirstValue' accepting a first argument of type 'ClaimsPrincipal' could be found (are you missing a using directive or an assembly reference?) [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+
+Build FAILED.
+
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(71,31): warning CS8602: Dereference of a possibly null reference. [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(148,32): warning CS8602: Dereference of a possibly null reference. [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\ContractController.cs(128,34): error CS1061: 'ClaimsPrincipal' does not contain a definition for 'FindFirstValue' and no accessible extension method 'FindFirstValue' accepting a first argument of type 'ClaimsPrincipal' could be found (are you missing a using directive or an assembly reference?) [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+F:\Quanlyphongtro\Quanlyphongtro\Controllers\InvoiceController.cs(158,34): error CS1061: 'ClaimsPrincipal' does not contain a definition for 'FindFirstValue' and no accessible extension method 'FindFirstValue' accepting a first argument of type 'ClaimsPrincipal' could be found (are you missing a using directive or an assembly reference?) [F:\Quanlyphongtro\Quanlyphongtro\Quanlyphongtro.csproj]
+    2 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:01.66

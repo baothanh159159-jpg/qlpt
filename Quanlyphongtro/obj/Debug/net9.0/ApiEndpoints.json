@@ -1,0 +1,638 @@
+[
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "DangKi",
+    "RelativePath": "api/Account/Dangki",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "themUserDto",
+        "Type": "Quanlyphongtro.Models.ThemUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "DangNhap",
+    "RelativePath": "api/Account/Dangnhap",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dangnhapDto",
+        "Type": "Quanlyphongtro.Models.DangnhapDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Account/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "GetMe",
+    "RelativePath": "api/Account/Me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "SearchUser",
+    "RelativePath": "api/Account/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AccountController",
+    "Method": "UpdateBankInfo",
+    "RelativePath": "api/Account/UpdateBankInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.UpdateBankDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "ApproveUser",
+    "RelativePath": "api/Admin/ApproveUser/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "ChangeRole",
+    "RelativePath": "api/Admin/ChangeRole/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Controllers.ChangeRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Admin/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "RejectUser",
+    "RelativePath": "api/Admin/RejectUser/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Admin/ResetPassword/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Controllers.ResetPasswordDto",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "GetStats",
+    "RelativePath": "api/Admin/Stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.AdminController",
+    "Method": "ToggleBan",
+    "RelativePath": "api/Admin/ToggleBan/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.ContractController",
+    "Method": "AddContract",
+    "RelativePath": "api/Contract/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.ThemContractDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.ContractController",
+    "Method": "ApproveContract",
+    "RelativePath": "api/Contract/ApproveContract/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.ThemContractDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.ContractController",
+    "Method": "EndContract",
+    "RelativePath": "api/Contract/EndContract/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.ContractController",
+    "Method": "GetAllContracts",
+    "RelativePath": "api/Contract/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.ContractController",
+    "Method": "RequestContract",
+    "RelativePath": "api/Contract/RequestContract",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.RequestContractDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.DashboardController",
+    "Method": "GetOverview",
+    "RelativePath": "api/Dashboard/Overview",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "DeleteInvoice",
+    "RelativePath": "api/Invoice/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "GenerateInvoice",
+    "RelativePath": "api/Invoice/Generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.GenerateInvoiceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "GetAllUnpaid",
+    "RelativePath": "api/Invoice/GetAllUnpaid",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "GetInvoicesByRoom",
+    "RelativePath": "api/Invoice/GetByRoom/{roomId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "GetTenantInvoices",
+    "RelativePath": "api/Invoice/GetTenantInvoices/{contractId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "contractId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.InvoiceController",
+    "Method": "GetMyInvoices",
+    "RelativePath": "api/Invoice/MyInvoices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.PaymentController",
+    "Method": "GetHistory",
+    "RelativePath": "api/Payment/History",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.PaymentController",
+    "Method": "PayInvoice",
+    "RelativePath": "api/Payment/Pay/{invoiceId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "AddNewRoom",
+    "RelativePath": "api/Room/AddRoom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "themRoomDto",
+        "Type": "Quanlyphongtro.Models.ThemRoomDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Room/DeleteRoom/{roomcode}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomcode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "GetAllRooms",
+    "RelativePath": "api/Room/GetAllRooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "minPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortByPrice",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortByArea",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "GetRoomById",
+    "RelativePath": "api/Room/GetRoom/{roomcode}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomcode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "UpdateRoom",
+    "RelativePath": "api/Room/UpdateRoom/{roomcode}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomcode",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "capNhapRoomDto",
+        "Type": "Quanlyphongtro.Models.CapNhapRoomDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.RoomController",
+    "Method": "UploadImages",
+    "RelativePath": "api/Room/UploadImages",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "files",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.TenantController",
+    "Method": "AddTenant",
+    "RelativePath": "api/Tenant/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.ThemTenantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.TenantController",
+    "Method": "DeleteTenant",
+    "RelativePath": "api/Tenant/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.TenantController",
+    "Method": "GetAllTenants",
+    "RelativePath": "api/Tenant/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.TenantController",
+    "Method": "SearchTenants",
+    "RelativePath": "api/Tenant/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.TenantController",
+    "Method": "UpdateTenant",
+    "RelativePath": "api/Tenant/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.CapNhapTenantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.UtilityController",
+    "Method": "AddUtility",
+    "RelativePath": "api/Utility/AddUtility",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Quanlyphongtro.Models.ThemUtilityDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Quanlyphongtro.Controllers.UtilityController",
+    "Method": "GetByRoom",
+    "RelativePath": "api/Utility/GetByRoom/{roomId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

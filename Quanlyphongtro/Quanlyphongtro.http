@@ -1,0 +1,10 @@
+@Quanlyphongtro_HostAddress = https://localhost:7201
+
+GET {{Quanlyphongtro_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{Quanlyphongtro_HostAddress}}/api/home
+
+###
