@@ -21,11 +21,17 @@ const Sidebar = ({ role, logout }) => {
   const [bankInfo, setBankInfo] = useState(null);
 
   useEffect(() => {
-    if (role === 'Landlord') {
-      api.get('/Account/Me')
-        .then(res => setBankInfo(res.data))
-        .catch(err => console.error("Could not fetch bank info", err));
-    }
+    const fetchBankInfo = () => {
+      if (role === 'Landlord') {
+        api.get('/Account/Me')
+          .then(res => setBankInfo(res.data))
+          .catch(err => console.error("Could not fetch bank info", err));
+      }
+    };
+
+    fetchBankInfo();
+    window.addEventListener('bankInfoUpdated', fetchBankInfo);
+    return () => window.removeEventListener('bankInfoUpdated', fetchBankInfo);
   }, [role]);
 
   const adminLinks = [

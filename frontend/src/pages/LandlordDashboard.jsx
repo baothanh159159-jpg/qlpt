@@ -81,6 +81,7 @@ const LandlordDashboard = () => {
                 bankAccountName: formData.get('bankAccountName')
               });
               alert('Cập nhật thành công!');
+              window.dispatchEvent(new Event('bankInfoUpdated'));
               fetchStats();
             } catch (err) {
               alert('Lỗi khi cập nhật thông tin');

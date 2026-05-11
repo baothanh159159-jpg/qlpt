@@ -138,7 +138,7 @@ const InvoiceManagement = () => {
                 <label className="label">Chọn Phòng (Đang thuê)</label>
                 <select className="w-full p-2 border rounded-lg mt-1" value={formData.roomId} onChange={(e) => setFormData({...formData, roomId: e.target.value})} required>
                   <option value="">-- Chọn phòng --</option>
-                  {rooms.map(r => <option key={r.id} value={r.id}>Phòng {r.roomNumber}</option>)}
+                  {rooms.map(r => <option key={r.id} value={r.id}>{r.name || r.Name || `Phòng ${r.roomCode || r.RoomCode}`}</option>)}
                 </select>
               </div>
               <div className="flex gap-4 mb-4">
