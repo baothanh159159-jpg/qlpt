@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Downloads\\Quanlyphongtro\\Quanlyphongtro\\Quanlyphongtro.csproj": {}
+    "C:\\repos\\qlpt\\Quanlyphongtro\\Quanlyphongtro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Downloads\\Quanlyphongtro\\Quanlyphongtro\\Quanlyphongtro.csproj": {
+    "C:\\repos\\qlpt\\Quanlyphongtro\\Quanlyphongtro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Downloads\\Quanlyphongtro\\Quanlyphongtro\\Quanlyphongtro.csproj",
+        "projectUniqueName": "C:\\repos\\qlpt\\Quanlyphongtro\\Quanlyphongtro.csproj",
         "projectName": "Quanlyphongtro",
-        "projectPath": "C:\\Users\\ASUS\\Downloads\\Quanlyphongtro\\Quanlyphongtro\\Quanlyphongtro.csproj",
+        "projectPath": "C:\\repos\\qlpt\\Quanlyphongtro\\Quanlyphongtro.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Downloads\\Quanlyphongtro\\Quanlyphongtro\\obj\\",
+        "outputPath": "C:\\repos\\qlpt\\Quanlyphongtro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
