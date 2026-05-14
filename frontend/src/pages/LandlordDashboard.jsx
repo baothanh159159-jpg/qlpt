@@ -333,16 +333,53 @@ const LandlordDashboard = () => {
             }}
           >
             <div className="mb-3">
-              <label className="label">
-                Mã Ngân hàng (VD: MB, VCB, ICB...)
-              </label>
-
-              <input
+              <label className="label">Ngân hàng</label>
+              <select
                 name="bankCode"
-                defaultValue={bankInfo?.bankCode}
+                defaultValue={bankInfo?.bankCode || ""}
                 className="w-full p-2 border rounded-lg"
                 required
-              />
+                style={{ cursor: "pointer" }}
+              >
+                <option value="">-- Chọn ngân hàng --</option>
+                <option value="ACB">ACB – Ngân hàng Á Châu</option>
+                <option value="AGRIBANK">AGRIBANK – Ngân hàng Nông nghiệp &amp; PTNT</option>
+                <option value="BIDV">BIDV – Ngân hàng Đầu tư &amp; Phát triển VN</option>
+                <option value="BVB">BVB – Ngân hàng Bảo Việt</option>
+                <option value="CAKE">CAKE – Ngân hàng số CAKE by VPBank</option>
+                <option value="DONGABANK">DONGABANK – Ngân hàng Đông Á</option>
+                <option value="EXIMBANK">EXIMBANK – Ngân hàng Xuất Nhập khẩu VN</option>
+                <option value="GPB">GPB – Ngân hàng Dầu Khí Toàn Cầu</option>
+                <option value="HDB">HDB – Ngân hàng HD Bank</option>
+                <option value="ICB">ICB – Vietinbank</option>
+                <option value="IVB">IVB – Ngân hàng Indovina</option>
+                <option value="KLB">KLB – Ngân hàng Kiên Long</option>
+                <option value="LPB">LPB – Ngân hàng Lộc Phát (LienVietPostBank)</option>
+                <option value="MB">MB – Ngân hàng Quân Đội</option>
+                <option value="MSB">MSB – Ngân hàng Hàng Hải</option>
+                <option value="NAB">NAB – Ngân hàng Nam Á</option>
+                <option value="NCB">NCB – Ngân hàng Quốc Dân</option>
+                <option value="OCB">OCB – Ngân hàng Phương Đông</option>
+                <option value="PBVN">PBVN – Ngân hàng PVcomBank</option>
+                <option value="PGB">PGB – Ngân hàng Xăng dầu Petrolimex</option>
+                <option value="SACOMBANK">SACOMBANK – Ngân hàng Sài Gòn Thương Tín</option>
+                <option value="SAIGONBANK">SAIGONBANK – Ngân hàng Sài Gòn Công Thương</option>
+                <option value="SCB">SCB – Ngân hàng Sài Gòn</option>
+                <option value="SEABANK">SEABANK – Ngân hàng Đông Nam Á</option>
+                <option value="SHB">SHB – Ngân hàng Sài Gòn – Hà Nội</option>
+                <option value="SHBVN">SHBVN – Ngân hàng Shinhan Việt Nam</option>
+                <option value="TECHCOMBANK">TECHCOMBANK – Ngân hàng Kỹ Thương VN</option>
+                <option value="TPBANK">TPBANK – Ngân hàng Tiên Phong</option>
+                <option value="UBANK">UBANK – Ngân hàng số Ubank by VPBank</option>
+                <option value="VAB">VAB – Ngân hàng Việt Á</option>
+                <option value="VCB">VCB – Vietcombank</option>
+                <option value="VCCB">VCCB – Ngân hàng Bản Việt</option>
+                <option value="VIB">VIB – Ngân hàng Quốc tế</option>
+                <option value="VIDBANK">VIDBANK – Ngân hàng VID Public</option>
+                <option value="VIETBANK">VIETBANK – Ngân hàng Việt Nam Thương Tín</option>
+                <option value="VPB">VPB – VPBank</option>
+                <option value="WVN">WVN – Ngân hàng Woori Việt Nam</option>
+              </select>
             </div>
 
             <div className="mb-3">

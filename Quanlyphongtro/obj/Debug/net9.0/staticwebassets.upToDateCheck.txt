@@ -24,3 +24,4 @@ wwwroot\uploads\rooms\ed10a04c-cf0d-46db-a125-2b1397626bc7.jpg
 wwwroot\uploads\rooms\f4d5ada2-4468-4ff5-992e-30d0aa4aa5dc.jpg
 wwwroot\uploads\rooms\fd8f326d-d44d-43f3-a07c-1ccdf1edad32.jpg
 wwwroot\uploads\rooms\ff4fbfdc-25d7-4cbf-8407-f0e8136e17c8.jpg
+wwwroot\uploads\rooms\08b42ac7-8e3d-494e-bc27-76335b6b04b9.jpg

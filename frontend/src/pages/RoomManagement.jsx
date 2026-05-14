@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import api from '../services/api';
-import { Home, Plus, Edit2, Trash2, Search, Image as ImageIcon, X, MapPin, Maximize, PlusCircle } from 'lucide-react';
+import { Home, Plus, Edit2, Trash2, Image as ImageIcon, X, Maximize, Upload, Loader } from 'lucide-react';
 
 const RoomManagement = () => {
   const [rooms, setRooms] = useState([]);
@@ -17,8 +17,12 @@ const RoomManagement = () => {
     description: '',
     address: '',
     status: 'Available',
-    imageUrls: [''] // Array of image URLs
+    existingUrls: [],   // URLs already saved on server (edit mode)
+    selectedFiles: [],  // new File objects chosen by user
+    previewUrls: []     // object URLs for local preview
   });
+  const fileInputRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
 
   const fetchRooms = async () => {
     setLoading(true);
@@ -42,6 +46,8 @@ const RoomManagement = () => {
   };
 
   const handleOpenModal = (room = null) => {
+    // Revoke any lingering object URLs to free memory
+    formData.previewUrls.forEach(u => URL.revokeObjectURL(u));
     if (room) {
       setIsEditing(true);
       setCurrentRoomCode(room.roomCode || room.RoomCode);
@@ -54,56 +60,97 @@ const RoomManagement = () => {
         description: room.description || room.Description || '',
         address: room.address || room.Address || '',
         status: room.status || room.Status || 'Available',
-        imageUrls: existingImgs.length > 0 ? existingImgs : ['']
+        existingUrls: existingImgs,
+        selectedFiles: [],
+        previewUrls: []
       });
     } else {
       setIsEditing(false);
       setFormData({ 
         roomCode: '', name: '', area: '', price: '', 
-        description: '', address: '', status: 'Available', imageUrls: [''] 
+        description: '', address: '', status: 'Available',
+        existingUrls: [], selectedFiles: [], previewUrls: []
       });
     }
     setShowModal(true);
   };
 
-  const handleAddImageUrl = () => {
-    setFormData({ ...formData, imageUrls: [...formData.imageUrls, ''] });
+  /* ── file picker handler ── */
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    const newPreviews = files.map(f => URL.createObjectURL(f));
+    setFormData(f => ({
+      ...f,
+      selectedFiles: [...f.selectedFiles, ...files],
+      previewUrls: [...f.previewUrls, ...newPreviews]
+    }));
+    // reset input so same file can be re-selected if needed
+    e.target.value = '';
   };
 
-  const handleRemoveImageUrl = (index) => {
-    const newUrls = formData.imageUrls.filter((_, i) => i !== index);
-    setFormData({ ...formData, imageUrls: newUrls.length > 0 ? newUrls : [''] });
+  /* ── remove a newly-selected (not-yet-uploaded) file ── */
+  const handleRemoveNewFile = (index) => {
+    URL.revokeObjectURL(formData.previewUrls[index]);
+    setFormData(f => ({
+      ...f,
+      selectedFiles: f.selectedFiles.filter((_, i) => i !== index),
+      previewUrls: f.previewUrls.filter((_, i) => i !== index)
+    }));
   };
 
-  const handleImageUrlChange = (index, value) => {
-    const newUrls = [...formData.imageUrls];
-    newUrls[index] = value;
-    setFormData({ ...formData, imageUrls: newUrls });
+  /* ── remove an already-saved URL (edit mode) ── */
+  const handleRemoveExisting = (index) => {
+    setFormData(f => ({
+      ...f,
+      existingUrls: f.existingUrls.filter((_, i) => i !== index)
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = {
-      RoomCode: formData.roomCode,
-      Name: formData.name,
-      Area: parseFloat(formData.area),
-      Price: parseFloat(formData.price),
-      Description: formData.description,
-      Address: formData.address,
-      Status: formData.status,
-      Images: formData.imageUrls.filter(url => url.trim() !== '')
-    };
+    setUploading(true);
 
     try {
+      let uploadedUrls = [];
+
+      // Upload new files if any
+      if (formData.selectedFiles.length > 0) {
+        const fd = new FormData();
+        formData.selectedFiles.forEach(f => fd.append('files', f));
+        const res = await api.post('/Room/UploadImages', fd, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        uploadedUrls = res.data.urls || [];
+      }
+
+      const allImageUrls = [...formData.existingUrls, ...uploadedUrls];
+
+      const payload = {
+        RoomCode: formData.roomCode,
+        Name: formData.name,
+        Area: parseFloat(formData.area),
+        Price: parseFloat(formData.price),
+        Description: formData.description,
+        Address: formData.address,
+        Status: formData.status,
+        Images: allImageUrls
+      };
+
       if (isEditing) {
         await api.put(`/Room/UpdateRoom/${currentRoomCode}`, payload);
       } else {
         await api.post('/Room/AddRoom', payload);
       }
+
+      // Revoke local preview URLs
+      formData.previewUrls.forEach(u => URL.revokeObjectURL(u));
       setShowModal(false);
       fetchRooms();
     } catch (err) {
       alert(err.response?.data?.message || 'Lỗi khi lưu thông tin phòng');
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -217,32 +264,81 @@ const RoomManagement = () => {
                 <input type="text" className="w-full p-2 border rounded-lg mt-1" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} />
               </div>
 
-              {/* Multiple Images Section */}
+              {/* ── Image Upload Section ── */}
               <div className="md:col-span-2">
-                <div className="flex justify-between items-center mb-2">
-                  <label className="label">Danh sách đường dẫn ảnh (URL)</label>
-                  <button type="button" onClick={handleAddImageUrl} className="text-primary flex items-center gap-1 text-sm font-semibold">
-                    <PlusCircle size={16} /> Thêm ảnh
-                  </button>
+                <label className="label" style={{ marginBottom: '0.5rem', display: 'block' }}>Ảnh phòng</label>
+
+                {/* Drop zone / picker trigger */}
+                <div
+                  onClick={() => fileInputRef.current?.click()}
+                  style={{
+                    border: '2px dashed #cbd5e1',
+                    borderRadius: '10px',
+                    padding: '1.25rem',
+                    textAlign: 'center',
+                    cursor: 'pointer',
+                    background: '#f8fafc',
+                    transition: 'border-color 0.2s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--primary)'}
+                  onMouseLeave={e => e.currentTarget.style.borderColor = '#cbd5e1'}
+                >
+                  <Upload size={24} style={{ margin: '0 auto 0.4rem', color: '#94a3b8' }} />
+                  <p style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 500 }}>
+                    Nhấn để chọn ảnh từ máy
+                  </p>
+                  <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.2rem' }}>JPG, PNG, WEBP – Có thể chọn nhiều ảnh cùng lúc</p>
                 </div>
-                <div className="space-y-2">
-                  {formData.imageUrls.map((url, index) => (
-                    <div key={index} className="flex gap-2">
-                      <input 
-                        type="text" 
-                        className="w-full p-2 border rounded-lg" 
-                        value={url} 
-                        onChange={(e) => handleImageUrlChange(index, e.target.value)}
-                        placeholder="https://example.com/image.jpg"
-                      />
-                      {formData.imageUrls.length > 1 && (
-                        <button type="button" onClick={() => handleRemoveImageUrl(index)} className="p-2 text-danger hover:bg-red-50 rounded-lg">
-                          <X size={20} />
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  style={{ display: 'none' }}
+                  onChange={handleFileSelect}
+                />
+
+                {/* Thumbnail grid */}
+                {(formData.existingUrls.length > 0 || formData.previewUrls.length > 0) && (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
+                    {/* Already-saved images */}
+                    {formData.existingUrls.map((url, i) => (
+                      <div key={`ex-${i}`} style={{ position: 'relative', width: '80px', height: '80px' }}>
+                        <img src={url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px', border: '2px solid #e2e8f0' }} />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveExisting(i)}
+                          style={{
+                            position: 'absolute', top: '-6px', right: '-6px',
+                            background: '#ef4444', border: 'none', borderRadius: '50%',
+                            width: '20px', height: '20px', cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white'
+                          }}
+                        >
+                          <X size={11} />
                         </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    ))}
+                    {/* New preview images */}
+                    {formData.previewUrls.map((url, i) => (
+                      <div key={`new-${i}`} style={{ position: 'relative', width: '80px', height: '80px' }}>
+                        <img src={url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px', border: '2px dashed var(--primary)' }} />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveNewFile(i)}
+                          style={{
+                            position: 'absolute', top: '-6px', right: '-6px',
+                            background: '#ef4444', border: 'none', borderRadius: '50%',
+                            width: '20px', height: '20px', cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white'
+                          }}
+                        >
+                          <X size={11} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="md:col-span-2">
@@ -251,7 +347,13 @@ const RoomManagement = () => {
               </div>
               <div className="md:col-span-2 flex gap-2 pt-4">
                 <button type="button" className="btn btn-outline w-full" onClick={() => setShowModal(false)}>Hủy</button>
-                <button type="submit" className="btn btn-primary w-full">{isEditing ? 'Cập nhật' : 'Lưu phòng'}</button>
+                <button type="submit" className="btn btn-primary w-full" disabled={uploading}>
+                  {uploading ? (
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+                      <Loader size={16} style={{ animation: 'spin 1s linear infinite' }} /> Đang tải ảnh...
+                    </span>
+                  ) : (isEditing ? 'Cập nhật' : 'Lưu phòng')}
+                </button>
               </div>
             </form>
           </div>

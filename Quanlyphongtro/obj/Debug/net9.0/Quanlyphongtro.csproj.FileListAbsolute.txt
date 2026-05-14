@@ -332,10 +332,11 @@ C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.build.json
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.development.json
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\Quanlyph.AFC37B1B.Up2Date
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\Quanlyphongtro.dll
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\refint\Quanlyphongtro.dll
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\Quanlyphongtro.pdb
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\Quanlyphongtro.genruntimeconfig.cache
 C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\ref\Quanlyphongtro.dll
+C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\swae.build.ex.cache
+C:\repos\qlpt\Quanlyphongtro\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
